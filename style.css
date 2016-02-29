@@ -1,0 +1,27 @@
+.block{
+    display:inline-block;
+}
+
+.wordDim{
+    display:inline-block;
+    width:150px;
+}
+
+.rackEnt{
+    display:inline-block;
+    width:250px;
+}
+
+.wordList{
+    height: 200px;
+    overflow-y:scroll;
+}
+
+.center_UIUX{
+    position: relative;
+}
+
+.letterBlock{
+    display: inline-block;
+    width:30px;
+}
