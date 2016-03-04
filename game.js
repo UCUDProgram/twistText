@@ -4,9 +4,6 @@ var wordCount =0;
 var correct = [];
 var guess = "";
 var tileRack = [];
-// var gameOver = false;
-
-
 
 var score = 0;
 var loadData = function(){
@@ -24,14 +21,11 @@ var loadData = function(){
 };
 
 var parseData = function(chuckJSON){
-  // console.log(chuckJSON);
   var data = JSON.parse(chuckJSON);
   tile = data.tile;
   initializeRack(tile);
-  // console.log(tile);
   correctAnswers = data.words;
   console.log(correctAnswers);
-  // console.log(wordCount);
   display_rack();
   display_words();
   display_status();
@@ -40,7 +34,6 @@ var parseData = function(chuckJSON){
 
 var updateString = function(charApp){
     guess = guess.concat(charApp);
-    // console.log(guess);
     display_selection();
 };
 
@@ -50,13 +43,7 @@ var initializeRack = function(aRack){
   }
 };
 
-
-
 var submitWord = function(){
-  // wordCheck(document.getElementById('wordEntered').value.toUpperCase());
-  // var input = document.getElementById('wordEntered');
-  // input.value = '';
-  
   wordCheck(guess);
   guess = '';
   display_rack();
@@ -71,10 +58,6 @@ var submitWord = function(){
 };
 
 var clearWord = function (){
-  // var input = document.getElementById('wordEntered');
-  // input.value = '';
-  
-  
   guess = '';
   display_rack();
   display_words();
@@ -114,22 +97,14 @@ var display_rack = function(){
     $div.innerHTML = '';
     tileRack.forEach(function (atile){
         var $letter = document.createElement('p');
-        // var charPos = tile.charAt(index);
         $letter.innerHTML = atile;
-        // $letter.classList.add('charPos');
         $letter.classList.add('letterBlock');
         $letter.addEventListener("click", function (ev){
         updateString(atile);
         });
-
-        // var $letter = document.createElement('p');
-        // $letter.innerHTML = tile;
-        // $letter.classList.add('tile');
         $div.appendChild($letter);
     })
 };
-// };
-// })};
 
 var display_selection = function(){
     var $div = document.getElementById('selection');
@@ -154,7 +129,6 @@ var display_left = function(){
   var $div = document.getElementById('remaining');
   $div.innerHTML = '';
   var $p = document.createElement('p');
-  // console.log(correctAnswers.length);
   var leftString = "Words left: " + (correctAnswers.length - wordCount);
   $p.innerHTML = leftString;
   $p.classList.add('leftString');
